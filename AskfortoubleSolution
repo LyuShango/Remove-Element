@@ -1,0 +1,21 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int i = 0, k = 0;
+        while ((i + k) < nums.length) {
+            if (nums[i + k] != val) {
+                nums[i] = nums[i + k];
+                i++;
+            }
+            else {
+                while (((i + k) < nums.length) && (nums[i + k] == val)) {
+                    k++;
+                }
+                if ((i + k) < nums.length) {
+                    nums[i] = nums[i + k];
+                    i++;
+                }                
+            }
+        }
+        return nums.length - k;
+    }
+}
